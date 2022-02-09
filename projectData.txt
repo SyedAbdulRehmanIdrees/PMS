@@ -1,0 +1,10 @@
+Panadol,2,180,20
+Zoladex,20,140,10
+Astrazeneca,200,30,0
+
+Put some discounts
+Keep up the good work!!!
+
+Panadol was returned because of expired
+
+abc@test.com
