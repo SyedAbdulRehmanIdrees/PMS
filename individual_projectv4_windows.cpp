@@ -76,11 +76,11 @@ int main(){
 					statusOfStocks();
 				}
 				else if(option == 2){
-					banner("User > Manager > Transactions");
+					banner("User > Manager > Sales");
 					transactions();
 				}
 				else if(option == 3){
-					banner("User > Manager > New stocks");
+					banner("User > Manager > New stock");
 
 					cout << "Drug Name: ";
 					cin >> tmpString;
@@ -151,7 +151,7 @@ int main(){
 					}
 				}
 				else if(option == 2){
-					banner("User > Receptionist > Decrease stocks");
+					banner("User > Receptionist > Remove stocks");
 
 					cout << "Item Name: ";
 					cin >> tmpString;
@@ -163,7 +163,7 @@ int main(){
 					}
 				}
 				else if(option == 3){
-					banner("User > Receptionist > Increase cash");
+					banner("User > Receptionist > Add cash");
 					cout << "Extra cash: ";
 					cin >> tmpInt;
 
@@ -275,9 +275,8 @@ int main(){
 					if(tmpInt != -1){
 						cout << "Quantity: ";
 						cin >> tmpInt;
-						// getchar();
 						cout << "Reason of return: ";
-						getline(cin, reasonReturn);
+						getline(cin >> ws, reasonReturn);
 
 						cout << "What do you want?" << endl
 							<< "1. Cash" << endl
@@ -318,7 +317,7 @@ int main(){
 				else if(option == 7){
 					banner("User > Customer > Feedback");
 					cout << "Enter feedback: ";
-					getline(cin, tmpString);
+					getline(cin >> ws, tmpString);
 
 					if(!addFeedback(tmpString)){
 						cout << "Something went wrong" << endl;
@@ -349,22 +348,21 @@ int main(){
 }
 
 void pause(){
-	// system("pause");
+	cin.ignore();
 	getchar();
-	// getchar();
 }
 
 void header(){
-	system("clear");
-	cout << "┌──────────────────────────────────────────────────────────┐" << endl
-		 << "│                Pharmacy Management System                │" << endl
-		 << "└──────────────────────────────────────────────────────────┘" << endl << endl;
+	system("cls");
+	wcout << L"\u00da\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00bf" << endl
+		 << L"\u00b3                Pharmacy Management System                \u00b3" << endl
+		 << L"\u00c0\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00d9" << endl << endl;
 }
 
 void banner(string s){
 	header();
-	cout << s << endl
-		<< "────────────────────────────────────────────────────────────" << endl;
+	cout << s << endl;
+	wcout << L"\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4\u00c4" << endl;
 }
 
 int mainMenu(){
@@ -376,7 +374,6 @@ int mainMenu(){
 		<< "3. Customer (self-service)" << endl
 		<< "4. Exit" << endl;
 	cin >> opt;
-	// getchar();
 
 	return opt;
 }
@@ -385,16 +382,15 @@ int adminMenu(){
 	int opt;
 
 	banner("User > Manager");
-	cout << "1. Check status of stocks" << endl
-		<< "2. Check total cash" << endl
-		<< "3. Add new stocks" << endl
-		<< "4. Add new items" << endl
+	cout << "1. View status of stocks" << endl
+		<< "2. View sales and total cash" << endl
+		<< "3. Add new stock" << endl
+		<< "4. Add new item" << endl
 		<< "5. Show drug dealer license" << endl
-		<< "6. Look at feedbacks" << endl
-		<< "7. Look at returned orders" << endl
+		<< "6. View feedbacks" << endl
+		<< "7. View returned orders" << endl
 		<< "8. Go back to main menu" << endl;
 	cin >> opt;
-	// getchar();
 
 	return opt;
 }
@@ -404,13 +400,12 @@ int userMenu(){
 
 	banner("User > Receptionist");
 	cout << "1. Place customer's order" << endl
-		<< "2. Decrease stocks" << endl
-		<< "3. Increase cash amount" << endl
+		<< "2. Remove stocks" << endl
+		<< "3. Add cash" << endl
 		<< "4. Redeem coupon" << endl
-		<< "5. Give coupons or cash for return of orders" << endl
+		<< "5. Generate coupon" << endl
 		<< "6. Go back to main menu" << endl;
 	cin >> opt;
-	// getchar();
 
 	return opt;
 }
@@ -419,16 +414,15 @@ int customerMenu(){
 	int opt;
 
 	banner("User > Customer");
-	cout << "1. Buy product" << endl
+	cout << "1. Buy product(s)" << endl
 		<< "2. Ask for drug dealer license" << endl
 		<< "3. Redeem coupon" << endl
 		<< "4. Return product" << endl
-		<< "5. Check price of product" << endl
+		<< "5. View price of product" << endl
 		<< "6. Get list of items available" << endl
 		<< "7. Add feedback" << endl
 		<< "8. Go back to main menu" << endl;
 	cin >> opt;
-	// getchar();
 
 	return opt;
 }
@@ -877,7 +871,10 @@ void drugDealerLicense(){
 		<< "Issuer: Drug Regulatory Authority" << endl
 		<< "Expiry Date: 11-Dec-2030" << endl;
 	
-	cout << "Emails have been sent" << endl;
+	for(int i = 0; i < emailCount; i++){
+		cout << "Email: " << emails[i] << " ... sent" << endl;
+	}
+	emailCount = 0;
 }
 
 void listFeedbacks(){
